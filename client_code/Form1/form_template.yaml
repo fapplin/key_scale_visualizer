@@ -1,11 +1,13 @@
 components:
 - components:
   - components:
-    - layout_properties: {col_xs: 0, row: VLFFBI, width_xs: 2}
+    - event_bindings: {}
+      layout_properties: {col_xs: 0, row: VLFFBI, width_xs: 2}
       name: button_1
       properties: {background: 'theme:Primary', foreground: 'theme:On Primary', text: C}
       type: Button
-    - layout_properties: {col_xs: 2, row: VLFFBI, width_xs: 2}
+    - event_bindings: {}
+      layout_properties: {col_xs: 2, row: VLFFBI, width_xs: 2}
       name: button_2
       properties: {background: 'theme:Primary', foreground: 'theme:On Primary', text: Db}
       type: Button
@@ -13,13 +15,15 @@ components:
       name: button_3
       properties: {background: 'theme:Primary', foreground: 'theme:On Primary', text: D}
       type: Button
-    - layout_properties: {col_xs: 6, row: VLFFBI, width_xs: 2}
-      name: button_5
-      properties: {background: 'theme:Primary', foreground: 'theme:On Primary', text: E}
-      type: Button
-    - layout_properties: {col_xs: 7, row: VLFFBI, width_xs: 2}
+    - event_bindings: {}
+      layout_properties: {col_xs: 6, row: VLFFBI, width_xs: 2}
       name: button_4
       properties: {background: 'theme:Primary', foreground: 'theme:On Primary', text: Eb}
+      type: Button
+    - event_bindings: {}
+      layout_properties: {col_xs: 6, row: VLFFBI, width_xs: 2}
+      name: button_5
+      properties: {background: 'theme:Primary', foreground: 'theme:On Primary', text: E}
       type: Button
     - layout_properties: {col_xs: 10, row: VLFFBI, width_xs: 2}
       name: button_6
