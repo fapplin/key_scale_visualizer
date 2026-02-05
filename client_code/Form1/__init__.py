@@ -158,4 +158,9 @@ class Form1(Form1Template):
     """This method is called when the button is clicked"""
     anvil.server.call('pico_fn_aeo', 18) # Choose any number you like!
     self.label_chosenscale.text = "Aeo"
+
+  @handle("button_startleds", "click")
+  def button_startleds_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    anvil.server.call('pico_fn_startleds', 18) # Choose any number you like!
  

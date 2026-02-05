@@ -175,6 +175,16 @@ components:
     name: grid_panel_5
     properties: {}
     type: GridPanel
+  - components:
+    - event_bindings: {}
+      layout_properties: {col_xs: 1, row: OSPJPN, width_xs: 4}
+      name: button_startleds
+      properties: {background: 'theme:Tertiary', foreground: 'theme:On Tertiary', text: Start LEDs}
+      type: Button
+    layout_properties: {grid_position: 'WDKHFC,JYJDOT'}
+    name: grid_panel_8
+    properties: {}
+    type: GridPanel
   layout_properties: {slot: default}
   name: content_panel
   properties: {col_widths: '{}'}
