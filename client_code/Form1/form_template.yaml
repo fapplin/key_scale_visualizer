@@ -1,32 +1,59 @@
 components:
 - components:
   - components:
+    - layout_properties: {col_xs: 0, row: XBCEHA, width_xs: 2}
+      name: label_2
+      properties: {text: 'Chosen Key:'}
+      type: Label
+    - layout_properties: {col_xs: 3, row: XBCEHA, width_xs: 4}
+      name: label_chosenkey
+      properties: {}
+      type: Label
+    layout_properties: {grid_position: 'ZXPXUI,SMVKCW'}
+    name: grid_panel_6
+    properties: {}
+    type: GridPanel
+  - components:
+    - layout_properties: {col_xs: 0, row: PNRYBL, width_xs: 3}
+      name: label_3
+      properties: {text: 'Chosen Scale:'}
+      type: Label
+    - layout_properties: {col_xs: 2, row: PNRYBL, width_xs: 4}
+      name: label_chosenscale
+      properties: {}
+      type: Label
+    layout_properties: {grid_position: 'USYRFM,UYQTSP'}
+    name: grid_panel_7
+    properties: {}
+    type: GridPanel
+  - components:
     - event_bindings: {}
       layout_properties: {col_xs: 0, row: VLFFBI, width_xs: 2}
-      name: button_1
+      name: button_c
       properties: {background: 'theme:Primary', foreground: 'theme:On Primary', text: C}
       type: Button
     - event_bindings: {}
       layout_properties: {col_xs: 2, row: VLFFBI, width_xs: 2}
-      name: button_2
+      name: button_db
       properties: {background: 'theme:Primary', foreground: 'theme:On Primary', text: Db}
       type: Button
     - layout_properties: {col_xs: 3, row: VLFFBI, width_xs: 2}
-      name: button_3
+      name: button_d
       properties: {background: 'theme:Primary', foreground: 'theme:On Primary', text: D}
       type: Button
     - event_bindings: {}
       layout_properties: {col_xs: 6, row: VLFFBI, width_xs: 2}
-      name: button_4
+      name: button_eb
       properties: {background: 'theme:Primary', foreground: 'theme:On Primary', text: Eb}
       type: Button
     - event_bindings: {}
       layout_properties: {col_xs: 6, row: VLFFBI, width_xs: 2}
-      name: button_5
+      name: button_e
       properties: {background: 'theme:Primary', foreground: 'theme:On Primary', text: E}
       type: Button
-    - layout_properties: {col_xs: 10, row: VLFFBI, width_xs: 2}
-      name: button_6
+    - event_bindings: {}
+      layout_properties: {col_xs: 10, row: VLFFBI, width_xs: 2}
+      name: button_f
       properties: {background: 'theme:Primary', foreground: 'theme:On Primary', text: F}
       type: Button
     layout_properties: {grid_position: 'ITPJFV,VTBNYU'}
@@ -34,28 +61,34 @@ components:
     properties: {}
     type: GridPanel
   - components:
-    - layout_properties: {col_xs: 0, row: OOOQGZ, width_xs: 2}
-      name: button_7
+    - event_bindings: {}
+      layout_properties: {col_xs: 0, row: OOOQGZ, width_xs: 2}
+      name: button_gb
       properties: {background: 'theme:Primary', foreground: 'theme:On Primary', text: Gb}
       type: Button
-    - layout_properties: {col_xs: 2, row: OOOQGZ, width_xs: 2}
-      name: button_8
+    - event_bindings: {}
+      layout_properties: {col_xs: 2, row: OOOQGZ, width_xs: 2}
+      name: button_g
       properties: {background: 'theme:Primary', foreground: 'theme:On Primary', text: G}
       type: Button
-    - layout_properties: {col_xs: 4, row: OOOQGZ, width_xs: 2}
-      name: button_9
+    - event_bindings: {}
+      layout_properties: {col_xs: 4, row: OOOQGZ, width_xs: 2}
+      name: button_ab
       properties: {background: 'theme:Primary', foreground: 'theme:On Primary', text: Ab}
       type: Button
-    - layout_properties: {col_xs: 6, row: OOOQGZ, width_xs: 2}
-      name: button_10
+    - event_bindings: {}
+      layout_properties: {col_xs: 6, row: OOOQGZ, width_xs: 2}
+      name: button_a
       properties: {background: 'theme:Primary', foreground: 'theme:On Primary', text: A}
       type: Button
-    - layout_properties: {col_xs: 7, row: OOOQGZ, width_xs: 2}
-      name: button_11
+    - event_bindings: {}
+      layout_properties: {col_xs: 7, row: OOOQGZ, width_xs: 2}
+      name: button_bb
       properties: {background: 'theme:Primary', foreground: 'theme:On Primary', text: Bb}
       type: Button
-    - layout_properties: {col_xs: 10, row: OOOQGZ, width_xs: 2}
-      name: button_12
+    - event_bindings: {}
+      layout_properties: {col_xs: 10, row: OOOQGZ, width_xs: 2}
+      name: button_b
       properties: {background: 'theme:Primary', foreground: 'theme:On Primary', text: B}
       type: Button
     layout_properties: {grid_position: 'MHORKU,AFZNMZ'}
@@ -63,20 +96,24 @@ components:
     properties: {}
     type: GridPanel
   - components:
-    - layout_properties: {col_xs: 0, row: TORMST, width_xs: 2}
-      name: button_13
+    - event_bindings: {}
+      layout_properties: {col_xs: 0, row: TORMST, width_xs: 2}
+      name: button_maj
       properties: {background: 'theme:Secondary', foreground: 'theme:On Secondary', text: Maj}
       type: Button
-    - layout_properties: {col_xs: 2, row: TORMST, width_xs: 2}
-      name: button_14
+    - event_bindings: {}
+      layout_properties: {col_xs: 2, row: TORMST, width_xs: 2}
+      name: button_min
       properties: {background: 'theme:Secondary', foreground: 'theme:On Secondary', text: Min}
       type: Button
-    - layout_properties: {col_xs: 4, row: TORMST, width_xs: 3}
-      name: button_15
+    - event_bindings: {}
+      layout_properties: {col_xs: 4, row: TORMST, width_xs: 3}
+      name: button_majblu
       properties: {background: 'theme:Secondary', foreground: 'theme:On Secondary', text: MajBlu}
       type: Button
-    - layout_properties: {col_xs: 6, row: TORMST, width_xs: 3}
-      name: button_16
+    - event_bindings: {}
+      layout_properties: {col_xs: 6, row: TORMST, width_xs: 3}
+      name: button_minblu
       properties: {background: 'theme:Secondary', foreground: 'theme:On Secondary', text: MinBlu}
       type: Button
     layout_properties: {grid_position: 'RELPCS,UDBKUX'}
@@ -84,20 +121,24 @@ components:
     properties: {}
     type: GridPanel
   - components:
-    - layout_properties: {col_xs: 0, row: YSOSSV, width_xs: 3}
-      name: button_17
+    - event_bindings: {}
+      layout_properties: {col_xs: 0, row: YSOSSV, width_xs: 3}
+      name: button_majpen
       properties: {background: 'theme:Secondary', foreground: 'theme:On Secondary', text: MajPen}
       type: Button
-    - layout_properties: {col_xs: 2, row: YSOSSV, width_xs: 3}
-      name: button_18
+    - event_bindings: {}
+      layout_properties: {col_xs: 2, row: YSOSSV, width_xs: 3}
+      name: button_minpen
       properties: {background: 'theme:Secondary', foreground: 'theme:On Secondary', text: MinPen}
       type: Button
-    - layout_properties: {col_xs: 6, row: YSOSSV, width_xs: 3}
-      name: button_19
+    - event_bindings: {}
+      layout_properties: {col_xs: 6, row: YSOSSV, width_xs: 3}
+      name: button_majhar
       properties: {background: 'theme:Secondary', foreground: 'theme:On Secondary', text: MajHar}
       type: Button
-    - layout_properties: {col_xs: 8, row: YSOSSV, width_xs: 3}
-      name: button_20
+    - event_bindings: {}
+      layout_properties: {col_xs: 8, row: YSOSSV, width_xs: 3}
+      name: button_minhar
       properties: {background: 'theme:Secondary', foreground: 'theme:On Secondary', text: MinHar}
       type: Button
     layout_properties: {grid_position: 'IGTGLV,HIHNEQ'}
@@ -105,24 +146,29 @@ components:
     properties: {}
     type: GridPanel
   - components:
-    - layout_properties: {col_xs: 0, row: KRQREL, width_xs: 2}
-      name: button_21
+    - event_bindings: {}
+      layout_properties: {col_xs: 0, row: KRQREL, width_xs: 2}
+      name: button_dor
       properties: {background: 'theme:Secondary', foreground: 'theme:On Secondary', text: Dor}
       type: Button
-    - layout_properties: {col_xs: 2, row: KRQREL, width_xs: 2}
-      name: button_22
+    - event_bindings: {}
+      layout_properties: {col_xs: 2, row: KRQREL, width_xs: 2}
+      name: button_phr
       properties: {background: 'theme:Secondary', foreground: 'theme:On Secondary', text: Phr}
       type: Button
-    - layout_properties: {col_xs: 4, row: KRQREL, width_xs: 2}
-      name: button_23
+    - event_bindings: {}
+      layout_properties: {col_xs: 4, row: KRQREL, width_xs: 2}
+      name: button_lyd
       properties: {background: 'theme:Secondary', foreground: 'theme:On Secondary', text: Lyd}
       type: Button
-    - layout_properties: {col_xs: 6, row: KRQREL, width_xs: 2}
-      name: button_24
+    - event_bindings: {}
+      layout_properties: {col_xs: 6, row: KRQREL, width_xs: 2}
+      name: button_mix
       properties: {background: 'theme:Secondary', foreground: 'theme:On Secondary', text: Mix}
       type: Button
-    - layout_properties: {col_xs: 8, row: KRQREL, width_xs: 2}
-      name: button_25
+    - event_bindings: {}
+      layout_properties: {col_xs: 8, row: KRQREL, width_xs: 2}
+      name: button_aeo
       properties: {background: 'theme:Secondary', foreground: 'theme:On Secondary', text: Aeo}
       type: Button
     layout_properties: {grid_position: 'IVDEQV,FCZSDW'}
