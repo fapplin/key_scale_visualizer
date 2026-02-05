@@ -1,5 +1,130 @@
 components:
-- components: []
+- components:
+  - components:
+    - layout_properties: {col_xs: 0, row: VLFFBI, width_xs: 2}
+      name: button_1
+      properties: {background: 'theme:Primary', foreground: 'theme:On Primary', text: C}
+      type: Button
+    - layout_properties: {col_xs: 2, row: VLFFBI, width_xs: 2}
+      name: button_2
+      properties: {background: 'theme:Primary', foreground: 'theme:On Primary', text: Db}
+      type: Button
+    - layout_properties: {col_xs: 3, row: VLFFBI, width_xs: 2}
+      name: button_3
+      properties: {background: 'theme:Primary', foreground: 'theme:On Primary', text: D}
+      type: Button
+    - layout_properties: {col_xs: 6, row: VLFFBI, width_xs: 2}
+      name: button_5
+      properties: {background: 'theme:Primary', foreground: 'theme:On Primary', text: E}
+      type: Button
+    - layout_properties: {col_xs: 7, row: VLFFBI, width_xs: 2}
+      name: button_4
+      properties: {background: 'theme:Primary', foreground: 'theme:On Primary', text: Eb}
+      type: Button
+    - layout_properties: {col_xs: 10, row: VLFFBI, width_xs: 2}
+      name: button_6
+      properties: {background: 'theme:Primary', foreground: 'theme:On Primary', text: F}
+      type: Button
+    layout_properties: {grid_position: 'ITPJFV,VTBNYU'}
+    name: grid_panel_1
+    properties: {}
+    type: GridPanel
+  - components:
+    - layout_properties: {col_xs: 0, row: OOOQGZ, width_xs: 2}
+      name: button_7
+      properties: {background: 'theme:Primary', foreground: 'theme:On Primary', text: Gb}
+      type: Button
+    - layout_properties: {col_xs: 2, row: OOOQGZ, width_xs: 2}
+      name: button_8
+      properties: {background: 'theme:Primary', foreground: 'theme:On Primary', text: G}
+      type: Button
+    - layout_properties: {col_xs: 4, row: OOOQGZ, width_xs: 2}
+      name: button_9
+      properties: {background: 'theme:Primary', foreground: 'theme:On Primary', text: Ab}
+      type: Button
+    - layout_properties: {col_xs: 6, row: OOOQGZ, width_xs: 2}
+      name: button_10
+      properties: {background: 'theme:Primary', foreground: 'theme:On Primary', text: A}
+      type: Button
+    - layout_properties: {col_xs: 7, row: OOOQGZ, width_xs: 2}
+      name: button_11
+      properties: {background: 'theme:Primary', foreground: 'theme:On Primary', text: Bb}
+      type: Button
+    - layout_properties: {col_xs: 10, row: OOOQGZ, width_xs: 2}
+      name: button_12
+      properties: {background: 'theme:Primary', foreground: 'theme:On Primary', text: B}
+      type: Button
+    layout_properties: {grid_position: 'MHORKU,AFZNMZ'}
+    name: grid_panel_2
+    properties: {}
+    type: GridPanel
+  - components:
+    - layout_properties: {col_xs: 0, row: TORMST, width_xs: 2}
+      name: button_13
+      properties: {background: 'theme:Secondary', foreground: 'theme:On Secondary', text: Maj}
+      type: Button
+    - layout_properties: {col_xs: 2, row: TORMST, width_xs: 2}
+      name: button_14
+      properties: {background: 'theme:Secondary', foreground: 'theme:On Secondary', text: Min}
+      type: Button
+    - layout_properties: {col_xs: 4, row: TORMST, width_xs: 3}
+      name: button_15
+      properties: {background: 'theme:Secondary', foreground: 'theme:On Secondary', text: MajBlu}
+      type: Button
+    - layout_properties: {col_xs: 6, row: TORMST, width_xs: 3}
+      name: button_16
+      properties: {background: 'theme:Secondary', foreground: 'theme:On Secondary', text: MinBlu}
+      type: Button
+    layout_properties: {grid_position: 'RELPCS,UDBKUX'}
+    name: grid_panel_3
+    properties: {}
+    type: GridPanel
+  - components:
+    - layout_properties: {col_xs: 0, row: YSOSSV, width_xs: 3}
+      name: button_17
+      properties: {background: 'theme:Secondary', foreground: 'theme:On Secondary', text: MajPen}
+      type: Button
+    - layout_properties: {col_xs: 2, row: YSOSSV, width_xs: 3}
+      name: button_18
+      properties: {background: 'theme:Secondary', foreground: 'theme:On Secondary', text: MinPen}
+      type: Button
+    - layout_properties: {col_xs: 6, row: YSOSSV, width_xs: 3}
+      name: button_19
+      properties: {background: 'theme:Secondary', foreground: 'theme:On Secondary', text: MajHar}
+      type: Button
+    - layout_properties: {col_xs: 8, row: YSOSSV, width_xs: 3}
+      name: button_20
+      properties: {background: 'theme:Secondary', foreground: 'theme:On Secondary', text: MinHar}
+      type: Button
+    layout_properties: {grid_position: 'IGTGLV,HIHNEQ'}
+    name: grid_panel_4
+    properties: {}
+    type: GridPanel
+  - components:
+    - layout_properties: {col_xs: 0, row: KRQREL, width_xs: 2}
+      name: button_21
+      properties: {background: 'theme:Secondary', foreground: 'theme:On Secondary', text: Dor}
+      type: Button
+    - layout_properties: {col_xs: 2, row: KRQREL, width_xs: 2}
+      name: button_22
+      properties: {background: 'theme:Secondary', foreground: 'theme:On Secondary', text: Phr}
+      type: Button
+    - layout_properties: {col_xs: 4, row: KRQREL, width_xs: 2}
+      name: button_23
+      properties: {background: 'theme:Secondary', foreground: 'theme:On Secondary', text: Lyd}
+      type: Button
+    - layout_properties: {col_xs: 6, row: KRQREL, width_xs: 2}
+      name: button_24
+      properties: {background: 'theme:Secondary', foreground: 'theme:On Secondary', text: Mix}
+      type: Button
+    - layout_properties: {col_xs: 8, row: KRQREL, width_xs: 2}
+      name: button_25
+      properties: {background: 'theme:Secondary', foreground: 'theme:On Secondary', text: Aeo}
+      type: Button
+    layout_properties: {grid_position: 'IVDEQV,FCZSDW'}
+    name: grid_panel_5
+    properties: {}
+    type: GridPanel
   layout_properties: {slot: default}
   name: content_panel
   properties: {col_widths: '{}'}
@@ -8,6 +133,10 @@ components:
   name: navbar_links
   properties: {}
   type: FlowPanel
+- layout_properties: {slot: title}
+  name: label_1
+  properties: {text: Choose your Key and Scale}
+  type: Label
 container:
   properties: {html: '@theme:standard-page.html'}
   type: HtmlTemplate
