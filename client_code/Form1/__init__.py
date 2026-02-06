@@ -2,6 +2,12 @@ from ._anvil_designer import Form1Template
 from anvil import *
 import anvil.server
 
+#*****************************************************
+# These are the scales/modes displayed as buttons
+# on the screen. If you want to add more scales/modes 
+# via the dropdown - add it below in the Form __init__
+# method.
+#*****************************************************
 MAJOR =                 "1,0,1,0,1,1,0,1,0,1,0,1"
 MINOR = 			      	  "1,0,1,1,0,1,0,1,1,0,1,0"
 MAJOR_BLUES =           "1,0,0,1,0,1,1,1,0,0,1,0"
@@ -15,21 +21,39 @@ PHRYGIAN =			  "1,1,0,1,0,1,0,1,1,0,1,0"
 LYDIAN = 				  "1,0,1,0,1,0,1,1,0,1,0,1"
 MIXOLYDIAN = 			  "1,0,1,0,1,1,0,1,0,1,1,0"
 AEOLIAN = 			  "1,0,1,1,0,1,0,1,1,0,1,0"
-LOCRIAN =               "1,1,0,1,0,1,1,0,1,0,1,0"
-BEBOP = 				  "1,0,1,0,1,1,0,1,0,1,1,1"
-GYPSY = 				  "1,0,1,1,0,0,1,1,1,0,1,0"
-HIRAJOSHI =			  "1,0,0,0,1,0,1,1,0,0,0,1"
-HUNGARIAN = 			  "1,0,1,1,0,0,1,1,1,0,0,1"
-LOCRIAN = 			  "1,1,0,1,0,1,1,0,1,0,1,0"
-PERSIAN = 			  "1,1,0,0,1,1,1,0,1,0,0,1"
-UKRANIAN = 			  "1,0,1,1,0,0,1,1,0,1,1,0"
+
+# Find all tuples containing the search string
+def find_tuples_with_string(tuple_list, search_str):
+  if not all(isinstance(t, tuple) for t in tuple_list):
+    raise TypeError("All elements in tuple_list must be tuples")
+  if not isinstance(search_str, str):
+    raise TypeError("Search term must be a string")
+
+  return [t for t in tuple_list if any(search_str.lower() in str(item).lower() for item in t)]
+
+def tuple_to_list(tup):
+  # Validate that the input is a tuple
+  if not isinstance(tup, tuple):
+    raise TypeError("Input must be a tuple.")
+
+    # Convert tuple to list
+  return list(tup)
 
 class Form1(Form1Template):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+
     # Any code you write here will run before the form opens.
-    
+    self.drop_down_scales_extra.items = ([("NONE", ""),
+                                             ("LOCRIAN", "1,1,0,1,0,1,1,0,1,0,1,0"), 
+                                             ("BEBOP", "1,0,1,0,1,1,0,1,0,1,1,1"),
+                                             ("GYPSY", "1,0,1,1,0,0,1,1,1,0,1,0" ),
+                                             ("HIRAJOSHI", "1,0,0,0,1,0,1,1,0,0,0,1"),
+                                             ("HUNGARIAN", "1,0,1,1,0,0,1,1,1,0,0,1"),
+                                             ("LOCRIAN", "1,1,0,1,0,1,1,0,1,0,1,0"),
+                                             ("PERSIAN", "1,1,0,0,1,1,1,0,1,0,0,1"),
+                                             ("UKRANIAN", "1,0,1,1,0,0,1,1,0,1,1,0")])
 
   @handle("button_c", "click")
   def button_c_click(self, **event_args):
@@ -185,16 +209,14 @@ class Form1(Form1Template):
   def button_startleds_click(self, **event_args):
     """This method is called when the button is clicked"""
     anvil.server.call('pico_fn_startleds', 18) # Choose any number you like!
-
-  @handle("drop_down_1", "show")
-  def drop_down_1_show(self, **event_args):
-    self.drop_down_1.items = ([("NONE", ""),
-                           ("LOCRIAN", "1,1,0,1,0,1,1,0,1,0,1,0"), 
-                           ("BEBOP", "1,0,1,0,1,1,0,1,0,1,1,1")])
     
-  @handle("drop_down_1", "change")
-  def drop_down_1_change(self, **event_args):
+    
+  @handle("drop_down_scales_extra", "change")
+  def drop_down_scales_extra_change(self, **event_args):
     """This method is called when an item is selected"""
-    anvil.server.call('pico_fn_scales', ) # Choose any number you like!
-    self.label_chosenscale.text = self.drop_down_1.selected_value
+    my_tuple = find_tuples_with_string(self.drop_down_scales_extra.items, self.drop_down_scales_extra.selected_value)
+    print(my_tuple)
+    my_list = tuple_to_list(my_tuple[0])
+    anvil.server.call('pico_fn_scales', self.drop_down_scales_extra.selected_value) # Choose any number you like!
+    self.label_chosenscale.text = my_list[0]
  

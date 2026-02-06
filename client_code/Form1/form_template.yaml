@@ -176,13 +176,12 @@ components:
       properties: {text: 'Misc. Modes:'}
       type: Label
     - data_bindings:
-      - {code: 'self.item['''']', property: items, writeback: false}
       - {code: 'self.item['''']', property: selected_value, writeback: false}
       event_bindings: {}
       layout_properties: {col_xs: 5, row: KRQREL, width_xs: 3}
-      name: drop_down_1
+      name: drop_down_scales_extra
       properties:
-        items: ['None, ""', 'Bebop,"1,0,1,0,1,1,0,1,0,1,1,1"', 'Gypsy, "1,0,1,1,0,0,1,1,1,0,1,0"', 'Hirajoshi, "1,0,0,0,1,0,1,1,0,0,0,1"', 'Hungarian, "1,0,1,1,0,0,1,1,1,0,0,1"', 'Locrian, "1,1,0,1,0,1,1,0,1,0,1,0"', 'Persian, "1,1,0,0,1,1,1,0,1,0,0,1"', 'Ukranian, "1,0,1,1,0,0,1,1,0,1,1,0"', '']
+        items: []
       type: DropDown
     layout_properties: {grid_position: 'IVDEQV,FCZSDW'}
     name: grid_panel_5
