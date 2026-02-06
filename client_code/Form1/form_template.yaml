@@ -99,22 +99,32 @@ components:
     - event_bindings: {}
       layout_properties: {col_xs: 0, row: TORMST, width_xs: 2}
       name: button_maj
-      properties: {background: 'theme:Secondary', foreground: 'theme:On Secondary', text: Maj}
+      properties: {background: 'theme:Secondary', foreground: 'theme:On Secondary', text: Major}
       type: Button
     - event_bindings: {}
       layout_properties: {col_xs: 2, row: TORMST, width_xs: 2}
       name: button_min
-      properties: {background: 'theme:Secondary', foreground: 'theme:On Secondary', text: Min}
+      properties: {background: 'theme:Secondary', foreground: 'theme:On Secondary', text: Minor}
       type: Button
     - event_bindings: {}
-      layout_properties: {col_xs: 4, row: TORMST, width_xs: 3}
+      layout_properties: {col_xs: 4, row: TORMST, width_xs: 2}
       name: button_majblu
       properties: {background: 'theme:Secondary', foreground: 'theme:On Secondary', text: MajBlu}
       type: Button
     - event_bindings: {}
-      layout_properties: {col_xs: 6, row: TORMST, width_xs: 3}
+      layout_properties: {col_xs: 6, row: TORMST, width_xs: 2}
       name: button_minblu
       properties: {background: 'theme:Secondary', foreground: 'theme:On Secondary', text: MinBlu}
+      type: Button
+    - event_bindings: {}
+      layout_properties: {col_xs: 8, row: TORMST, width_xs: 2}
+      name: button_majpen
+      properties: {background: 'theme:Secondary', foreground: 'theme:On Secondary', text: MajPen}
+      type: Button
+    - event_bindings: {}
+      layout_properties: {col_xs: 10, row: TORMST, width_xs: 2}
+      name: button_minpen
+      properties: {background: 'theme:Secondary', foreground: 'theme:On Secondary', text: MinPen}
       type: Button
     layout_properties: {grid_position: 'RELPCS,UDBKUX'}
     name: grid_panel_3
@@ -122,24 +132,34 @@ components:
     type: GridPanel
   - components:
     - event_bindings: {}
-      layout_properties: {col_xs: 0, row: YSOSSV, width_xs: 3}
-      name: button_majpen
-      properties: {background: 'theme:Secondary', foreground: 'theme:On Secondary', text: MajPen}
-      type: Button
-    - event_bindings: {}
-      layout_properties: {col_xs: 2, row: YSOSSV, width_xs: 3}
-      name: button_minpen
-      properties: {background: 'theme:Secondary', foreground: 'theme:On Secondary', text: MinPen}
-      type: Button
-    - event_bindings: {}
-      layout_properties: {col_xs: 6, row: YSOSSV, width_xs: 3}
+      layout_properties: {col_xs: 0, row: YSOSSV, width_xs: 2}
       name: button_majhar
       properties: {background: 'theme:Secondary', foreground: 'theme:On Secondary', text: MajHar}
       type: Button
     - event_bindings: {}
-      layout_properties: {col_xs: 8, row: YSOSSV, width_xs: 3}
+      layout_properties: {col_xs: 2, row: YSOSSV, width_xs: 2}
       name: button_minhar
       properties: {background: 'theme:Secondary', foreground: 'theme:On Secondary', text: MinHar}
+      type: Button
+    - event_bindings: {}
+      layout_properties: {col_xs: 4, row: YSOSSV, width_xs: 2}
+      name: button_dor
+      properties: {background: 'theme:Secondary', foreground: 'theme:On Secondary', text: Dor}
+      type: Button
+    - event_bindings: {}
+      layout_properties: {col_xs: 6, row: YSOSSV, width_xs: 2}
+      name: button_phr
+      properties: {background: 'theme:Secondary', foreground: 'theme:On Secondary', text: Phr}
+      type: Button
+    - event_bindings: {}
+      layout_properties: {col_xs: 8, row: YSOSSV, width_xs: 2}
+      name: button_lyd
+      properties: {background: 'theme:Secondary', foreground: 'theme:On Secondary', text: Lyd}
+      type: Button
+    - event_bindings: {}
+      layout_properties: {col_xs: 10, row: YSOSSV, width_xs: 2}
+      name: button_mix
+      properties: {background: 'theme:Secondary', foreground: 'theme:On Secondary', text: Mix}
       type: Button
     layout_properties: {grid_position: 'IGTGLV,HIHNEQ'}
     name: grid_panel_4
@@ -148,29 +168,19 @@ components:
   - components:
     - event_bindings: {}
       layout_properties: {col_xs: 0, row: KRQREL, width_xs: 2}
-      name: button_dor
-      properties: {background: 'theme:Secondary', foreground: 'theme:On Secondary', text: Dor}
-      type: Button
-    - event_bindings: {}
-      layout_properties: {col_xs: 2, row: KRQREL, width_xs: 2}
-      name: button_phr
-      properties: {background: 'theme:Secondary', foreground: 'theme:On Secondary', text: Phr}
-      type: Button
-    - event_bindings: {}
-      layout_properties: {col_xs: 4, row: KRQREL, width_xs: 2}
-      name: button_lyd
-      properties: {background: 'theme:Secondary', foreground: 'theme:On Secondary', text: Lyd}
-      type: Button
-    - event_bindings: {}
-      layout_properties: {col_xs: 6, row: KRQREL, width_xs: 2}
-      name: button_mix
-      properties: {background: 'theme:Secondary', foreground: 'theme:On Secondary', text: Mix}
-      type: Button
-    - event_bindings: {}
-      layout_properties: {col_xs: 8, row: KRQREL, width_xs: 2}
       name: button_aeo
       properties: {background: 'theme:Secondary', foreground: 'theme:On Secondary', text: Aeo}
       type: Button
+    - layout_properties: {col_xs: 3, row: KRQREL, width_xs: 2}
+      name: label_4
+      properties: {text: 'Misc. Modes:'}
+      type: Label
+    - event_bindings: {}
+      layout_properties: {col_xs: 5, row: KRQREL, width_xs: 3}
+      name: drop_down_1
+      properties:
+        items: [None, Bebop, Gypsy, Hirajoshi, Hungarian, Locrian, Persian, Ukranian, '']
+      type: DropDown
     layout_properties: {grid_position: 'IVDEQV,FCZSDW'}
     name: grid_panel_5
     properties: {background: 'theme:Surface Variant'}
