@@ -58,7 +58,7 @@ class Form1(Form1Template):
                                              ("LOCRIAN", "1,1,0,1,0,1,1,0,1,0,1,0"),
                                              ("PERSIAN", "1,1,0,0,1,1,1,0,1,0,0,1"),
                                              ("UKRANIAN", "1,0,1,1,0,0,1,1,0,1,1,0")])
-    
+
     
   @handle("button_c", "click")
   def button_c_click(self, **event_args):
