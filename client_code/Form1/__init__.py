@@ -22,6 +22,8 @@ LYDIAN = 				  "1,0,1,0,1,0,1,1,0,1,0,1"
 MIXOLYDIAN = 			  "1,0,1,0,1,1,0,1,0,1,1,0"
 AEOLIAN = 			  "1,0,1,1,0,1,0,1,1,0,1,0"
 
+button_clicked_flag = False
+
 # Find all tuples containing the search string
 def find_tuples_with_string(tuple_list, search_str):
   if not all(isinstance(t, tuple) for t in tuple_list):
@@ -38,7 +40,9 @@ def tuple_to_list(tup):
 
     # Convert tuple to list
   return list(tup)
+  
 
+  
 class Form1(Form1Template):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
@@ -54,7 +58,8 @@ class Form1(Form1Template):
                                              ("LOCRIAN", "1,1,0,1,0,1,1,0,1,0,1,0"),
                                              ("PERSIAN", "1,1,0,0,1,1,1,0,1,0,0,1"),
                                              ("UKRANIAN", "1,0,1,1,0,0,1,1,0,1,1,0")])
-
+    
+    
   @handle("button_c", "click")
   def button_c_click(self, **event_args):
     """This method is called when the button is clicked"""
