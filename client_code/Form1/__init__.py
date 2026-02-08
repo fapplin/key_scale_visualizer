@@ -40,13 +40,49 @@ def tuple_to_list(tup):
 
     # Convert tuple to list
   return list(tup)
-  
+
+class RadioButtonGroup:
+  """
+    A generic radio-button-like group for Anvil Buttons.
+    """
+  def __init__(self, buttons, on_change=None):
+    self.buttons = buttons
+    self.selected = None
+    self.on_change = on_change
+
+    for btn in self.buttons:
+      btn.background = 'grey'  # Reset style
+      btn.foreground = 'white'
+      
+    # Attach click handlers to each button
+    for btn in self.buttons:
+      btn.set_event_handler('click', self._handle_click)
+
+  def _handle_click(self, sender, **event_args):
+    # Deselect all buttons
+    for btn in self.buttons:
+      btn.background = 'grey'  # Reset style
+      btn.foreground = 'white'
+
+      # Select the clicked button
+    sender.background = 'green'  # Blue background
+    sender.foreground = "white"
+    self.selected = sender.text
+
+    # Call the change callback if provided
+    if self.on_change:
+      self.on_change(self.selected)
+
+  def get_selected(self):
+    return self.selected
 
   
 class Form1(Form1Template):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    self.chosen_key = 'None'
+    self.chosen_scale = 'None'
 
     # Any code you write here will run before the form opens.
     self.drop_down_scales_extra.items = ([("NONE", ""),
@@ -59,167 +95,104 @@ class Form1(Form1Template):
                                              ("PERSIAN", "1,1,0,0,1,1,1,0,1,0,0,1"),
                                              ("UKRANIAN", "1,0,1,1,0,0,1,1,0,1,1,0")])
 
-    
-  @handle("button_c", "click")
-  def button_c_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    anvil.server.call('pico_fn_keys', 0) # Choose any number you like!
-    self.label_chosenkey.text = "C"
+    # Create a radio-like group
+    self.radio_group_key = RadioButtonGroup(
+      [self.button_a, self.button_ab, self.button_b, self.button_bb,
+      self.button_c, self.button_d, self.button_db, self.button_e,
+      self.button_eb, self.button_f, self.button_g, self.button_gb],
+      on_change=self.key_option_changed
+    )
 
-  @handle("button_db", "click")
-  def button_db_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    anvil.server.call('pico_fn_keys', 1) # Choose any number you like!
-    self.label_chosenkey.text = "Db"
+    # Create a radio-like group
+    self.radio_group_scale = RadioButtonGroup(
+      [self.button_aeo, self.button_dor, self.button_lyd, self.button_maj,
+      self.button_majblu, self.button_majhar, self.button_majpen, self.button_min,
+      self.button_minblu, self.button_minhar, self.button_minpen, self.button_mix,
+      self.button_phr],
+      on_change=self.scale_option_changed
+    )
 
-  @handle("button_d", "click")
-  def button_d_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    anvil.server.call('pico_fn_keys', 2) # Choose any number you like!
-    self.label_chosenkey.text = "D"
-    
-  @handle("button_eb", "click")
-  def button_eb_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    anvil.server.call('pico_fn_keys', 3) # Choose any number you like!
-    self.label_chosenkey.text = "Eb"
-    
-  @handle("button_e", "click")
-  def button_e_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    anvil.server.call('pico_fn_keys', 4) # Choose any number you like!
-    self.label_chosenkey.text = "E"
+  def key_option_changed(self, selected_value):
+    my_choice = -1
+    if selected_value == 'C':
+      my_choice = 0
+    elif selected_value == 'Db':
+      my_choice = 1
+    elif selected_value == 'D':
+      my_choice = 2
+    elif selected_value == 'Eb':
+      my_choice = 3
+    elif selected_value == 'E':
+      my_choice = 4
+    elif selected_value == 'F':
+      my_choice = 5
+    elif selected_value == 'Gb':
+      my_choice = 6
+    elif selected_value == 'G':
+      my_choice = 7
+    elif selected_value == 'Ab':
+      my_choice = 8
+    elif selected_value == 'A':
+      my_choice = 9
+    elif selected_value == 'Bb':
+      my_choice = 10
+    elif selected_value == 'B':
+      my_choice = 11
 
-  @handle("button_f", "click")
-  def button_f_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    anvil.server.call('pico_fn_keys', 5) # Choose any number you like!
-    self.label_chosenkey.text = "F"
+    self.chosen_key = selected_value
+    anvil.server.call('pico_fn_keys', my_choice) # Choose any number you like!
 
-  @handle("button_gb", "click")
-  def button_gb_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    anvil.server.call('pico_fn_keys', 6) # Choose any number you like!
-    self.label_chosenkey.text = "Gb"
+  def scale_option_changed(self, selected_value):
+    my_choice = 'None'
+    if selected_value == 'Maj':
+      my_choice = MAJOR
+    elif selected_value == 'Min':
+      my_choice = MINOR
+    elif selected_value == 'MajBlu':
+      my_choice = MAJOR_BLUES
+    elif selected_value == 'MinBlu':
+      my_choice = MINOR_BLUES
+    elif selected_value == 'MajPen':
+      my_choice = MAJOR_PENTATONIC
+    elif selected_value == 'MinPen':
+      my_choice = MINOR_PENTATONIC
+    elif selected_value == 'MajHar':
+      my_choice = MAJOR_HARMONIC
+    elif selected_value == 'MinHar':
+      my_choice = MINOR_HARMONIC
+    elif selected_value == 'Dor':
+      my_choice = DORIAN
+    elif selected_value == 'Phr':
+      my_choice = PHRYGIAN
+    elif selected_value == 'Lyd':
+      my_choice = LYDIAN
+    elif selected_value == 'Mix':
+      my_choice = MIXOLYDIAN
+    elif selected_value == 'Aeo':
+      my_choice = AEOLIAN
 
-  @handle("button_g", "click")
-  def button_g_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    anvil.server.call('pico_fn_keys', 7) # Choose any number you like!
-    self.label_chosenkey.text = "G"
+    self.chosen_scale = selected_value
+    anvil.server.call('pico_fn_scales', my_choice) # Choose any number you like!
 
-  @handle("button_ab", "click")
-  def button_ab_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    anvil.server.call('pico_fn_keys', 8) # Choose any number you like!
-    self.label_chosenkey.text = "Ab"
-
-  @handle("button_a", "click")
-  def button_a_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    anvil.server.call('pico_fn_keys', 9) # Choose any number you like!
-    self.label_chosenkey.text = "A"
-
-  @handle("button_bb", "click")
-  def button_bb_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    anvil.server.call('pico_fn_keys', 10) # Choose any number you like!
-    self.label_chosenkey.text = "Bb"
-
-  @handle("button_b", "click")
-  def button_b_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    anvil.server.call('pico_fn_keys', 11) # Choose any number you like!
-    self.label_chosenkey.text = "B"
-
-  @handle("button_maj", "click")
-  def button_maj_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    anvil.server.call('pico_fn_scales',MAJOR) # Choose any number you like!
-    self.label_chosenscale.text = self.button_maj.text
-
-  @handle("button_min", "click")
-  def button_min_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    anvil.server.call('pico_fn_scales', MINOR) # Choose any number you like!
-    self.label_chosenscale.text = self.button_min.text
-
-  @handle("button_majblu", "click")
-  def button_majblu_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    anvil.server.call('pico_fn_scales', MAJOR_BLUES) # Choose any number you like!
-    self.label_chosenscale.text = self.button_majblu.text
-
-  @handle("button_minblu", "click")
-  def button_minblu_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    anvil.server.call('pico_fn_scales',MINOR_BLUES) # Choose any number you like!
-    self.label_chosenscale.text = self.button_minblu.text
-
-  @handle("button_majpen", "click")
-  def button_majpen_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    anvil.server.call('pico_fn_scales' ,MAJOR_PENTATONIC) # Choose any number you like!
-    self.label_chosenscale.text = self.button_majpen.text
-
-  @handle("button_minpen", "click")
-  def button_minpen_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    anvil.server.call('pico_fn_scales', MINOR_PENTATONIC) # Choose any number you like!
-    self.label_chosenscale.text = self.button_minpen.text
-
-  @handle("button_majhar", "click")
-  def button_majhar_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    anvil.server.call('pico_fn_scales',MAJOR_HARMONIC) # Choose any number you like!
-    self.label_chosenscale.text = self.button_majhar.text
-
-  @handle("button_minhar", "click")
-  def button_minhar_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    anvil.server.call('pico_fn_scales', MINOR_HARMONIC) # Choose any number you like!
-    self.label_chosenscale.text =  self.button_minhar.text
-
-  @handle("button_dor", "click")
-  def button_dor_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    anvil.server.call('pico_fn_scales', DORIAN) # Choose any number you like!
-    self.label_chosenscale.text = self.button_dor.text
-
-  @handle("button_phr", "click")
-  def button_phr_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    anvil.server.call('pico_fn_scales',PHRYGIAN) # Choose any number you like!
-    self.label_chosenscale.text = self.button_phr.text
-
-  @handle("button_lyd", "click")
-  def button_lyd_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    anvil.server.call('pico_fn_scales', LYDIAN) # Choose any number you like!
-    self.label_chosenscale.text = self.button_lyd.text
-
-  @handle("button_mix", "click")
-  def button_mix_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    anvil.server.call('pico_fn_scales', MIXOLYDIAN) # Choose any number you like!
-    self.label_chosenscale.text = self.button_mix.text
-
-  @handle("button_aeo", "click")
-  def button_aeo_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    anvil.server.call('pico_fn_scales', AEOLIAN) # Choose any number you like!
-    self.label_chosenscale.text = self.button_aeo.text
-
+  @handle("drop_down_scales_extra", "change")
+  def drop_down_scales_extra_change(self, **event_args):
+    """This method is called when an item is selected"""
+    my_tuple = find_tuples_with_string(self.drop_down_scales_extra.items, self.drop_down_scales_extra.selected_value)
+    print(my_tuple)
+    my_list = tuple_to_list(my_tuple[0])
+    anvil.server.call('pico_fn_scales', self.drop_down_scales_extra.selected_value) # Choose any number you like!
+    self.chosen_scale = my_list[0]
+  
   @handle("button_startleds", "click")
   def button_startleds_click(self, **event_args):
     """This method is called when the button is clicked"""
-    my_key = self.label_chosenkey.text.strip()
+    my_key = self.chosen_key.strip()
     print("key:" + my_key)
     if my_key == "None":
       print("here")
       self.label_error_status.text = "No key has been chosen."
       return
-    my_scale = self.label_chosenscale.text .strip()
+    my_scale = self.chosen_scale.strip()
     print("scale:" + my_scale)
     if my_scale == "None":
       self.label_error_status.text = "No scale has been chosen."
@@ -228,12 +201,5 @@ class Form1(Form1Template):
     anvil.server.call('pico_fn_startleds', 18) # Choose any number you like!
     
     
-  @handle("drop_down_scales_extra", "change")
-  def drop_down_scales_extra_change(self, **event_args):
-    """This method is called when an item is selected"""
-    my_tuple = find_tuples_with_string(self.drop_down_scales_extra.items, self.drop_down_scales_extra.selected_value)
-    print(my_tuple)
-    my_list = tuple_to_list(my_tuple[0])
-    anvil.server.call('pico_fn_scales', self.drop_down_scales_extra.selected_value) # Choose any number you like!
-    self.label_chosenscale.text = my_list[0]
+ 
  
