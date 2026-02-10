@@ -1,5 +1,8 @@
 from ._anvil_designer import Form1Template
 from anvil import *
+import anvil.tables as tables
+import anvil.tables.query as q
+from anvil.tables import app_tables
 import anvil.server
 
 #*****************************************************
@@ -85,16 +88,9 @@ class Form1(Form1Template):
     self.chosen_scale = 'None'
 
     # Any code you write here will run before the form opens.
-    self.drop_down_scales_extra.items = ([("NONE", ""),
-                                             ("LOCRIAN", "1,1,0,1,0,1,1,0,1,0,1,0"), 
-                                             ("BEBOP", "1,0,1,0,1,1,0,1,0,1,1,1"),
-                                             ("GYPSY", "1,0,1,1,0,0,1,1,1,0,1,0" ),
-                                             ("HIRAJOSHI", "1,0,0,0,1,0,1,1,0,0,0,1"),
-                                             ("HUNGARIAN", "1,0,1,1,0,0,1,1,1,0,0,1"),
-                                             ("LOCRIAN", "1,1,0,1,0,1,1,0,1,0,1,0"),
-                                             ("PERSIAN", "1,1,0,0,1,1,1,0,1,0,0,1"),
-                                             ("UKRANIAN", "1,0,1,1,0,0,1,1,0,1,1,0")])
-
+    scales_list = [(scales['name'], scales['layout']) for scales in app_tables.scales_extra.search()]
+    print(scales_list)
+    self.drop_down_scales_extra.items = scales_list
     # Create a radio-like group
     self.radio_group_key = RadioButtonGroup(
       [self.button_a, self.button_ab, self.button_b, self.button_bb,

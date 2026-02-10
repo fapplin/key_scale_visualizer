@@ -1,4 +1,16 @@
 allow_embedding: false
+db_schema:
+  scales_extra:
+    client: search
+    columns:
+    - admin_ui: {order: 0, width: 200}
+      name: name
+      type: string
+    - admin_ui: {order: 1, width: 200}
+      name: layout
+      type: string
+    server: search
+    title: scales_extra
 dependencies: []
 name: M3 App 2
 package_name: M3_App_2
