@@ -140,9 +140,9 @@ class Form1(Form1Template):
 
   def scale_option_changed(self, selected_value):
     my_choice = 'None'
-    if selected_value == 'Maj':
+    if selected_value == 'Major':
       my_choice = MAJOR
-    elif selected_value == 'Min':
+    elif selected_value == 'Minor':
       my_choice = MINOR
     elif selected_value == 'MajBlu':
       my_choice = MAJOR_BLUES
@@ -195,6 +195,8 @@ class Form1(Form1Template):
       return
     self.label_error_status.text = ""  
     anvil.server.call('pico_fn_startleds', 18) # Choose any number you like!
+
+
     
     
  
