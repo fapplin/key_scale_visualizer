@@ -5,26 +5,6 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.server
 
-#*****************************************************
-# These are the scales/modes displayed as buttons
-# on the screen. If you want to add more scales/modes 
-# via the dropdown - add it below in the Form __init__
-# method.
-#*****************************************************
-MAJOR =                 "1,0,1,0,1,1,0,1,0,1,0,1"
-MINOR = 			      	  "1,0,1,1,0,1,0,1,1,0,1,0"
-MAJOR_BLUES =           "1,0,0,1,0,1,1,1,0,0,1,0"
-MINOR_BLUES  =          "1,0,1,0,1,0,0,1,0,1,0,0"
-MAJOR_PENTATONIC =      "1,0,1,0,1,0,0,1,0,1,0,0"
-MINOR_PENTATONIC =      "1,0,0,1,0,1,0,1,0,0,1,0"
-MAJOR_HARMONIC =        "1,0,1,0,1,1,0,1,1,0,0,1"
-MINOR_HARMONIC =        "1,0,1,1,0,1,0,1,1,0,0,1"
-DORIAN =                "1,0,1,1,0,1,0,1,0,1,1,0"
-PHRYGIAN =			  "1,1,0,1,0,1,0,1,1,0,1,0"
-LYDIAN = 				  "1,0,1,0,1,0,1,1,0,1,0,1"
-MIXOLYDIAN = 			  "1,0,1,0,1,1,0,1,0,1,1,0"
-AEOLIAN = 			  "1,0,1,1,0,1,0,1,1,0,1,0"
-
 button_clicked_flag = False
 
 # Find all tuples containing the search string
@@ -141,31 +121,31 @@ class Form1(Form1Template):
   def scale_option_changed(self, selected_value):
     my_choice = 'None'
     if selected_value == 'Major':
-      my_choice = MAJOR
+      my_choice = "major"
     elif selected_value == 'Minor':
-      my_choice = MINOR
+      my_choice ="natural_minor"
     elif selected_value == 'MajBlu':
-      my_choice = MAJOR_BLUES
+      my_choice = "major_blues"
     elif selected_value == 'MinBlu':
-      my_choice = MINOR_BLUES
+      my_choice = "minor_blues"
     elif selected_value == 'MajPen':
-      my_choice = MAJOR_PENTATONIC
+      my_choice = "major_pentatonic"
     elif selected_value == 'MinPen':
-      my_choice = MINOR_PENTATONIC
+      my_choice = "minor_pentatonic"
     elif selected_value == 'MajHar':
-      my_choice = MAJOR_HARMONIC
+      my_choice = "None"
     elif selected_value == 'MinHar':
-      my_choice = MINOR_HARMONIC
+      my_choice = "harmonic_minor"
     elif selected_value == 'Dor':
-      my_choice = DORIAN
+      my_choice = "dorian"
     elif selected_value == 'Phr':
-      my_choice = PHRYGIAN
+      my_choice ="phrygian"
     elif selected_value == 'Lyd':
-      my_choice = LYDIAN
+      my_choice = "lydian"
     elif selected_value == 'Mix':
-      my_choice = MIXOLYDIAN
+      my_choice = "mixolydian"
     elif selected_value == 'Aeo':
-      my_choice = AEOLIAN
+      my_choice = "aeolian"
 
     self.chosen_scale = selected_value
     anvil.server.call('pico_fn_scales', my_choice) # Choose any number you like!
