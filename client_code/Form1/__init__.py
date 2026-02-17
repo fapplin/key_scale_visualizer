@@ -121,10 +121,10 @@ class Form1(Form1Template):
 
   def scale_option_changed(self, selected_value):
     my_choice = 'None'
-    scale_name = app_tables.button_scale_definitions.search(label_text=selected_value)
+    button_scale_defs = app_tables.button_scale_definitions.search(label_text=selected_value)
     print("scale_name:")
-    for data in scale_name:
-      my_choice = data["scale_name"]
+    for data in button_scale_defs:
+      my_choice = data["scale_definition"]
     print(my_choice)
     self.chosen_scale = my_choice
     anvil.server.call('pico_fn_scales', my_choice) # Choose any number you like!
