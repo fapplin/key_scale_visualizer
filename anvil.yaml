@@ -1,16 +1,33 @@
 allow_embedding: false
 db_schema:
-  scales_extra:
+  button_scale_definitions:
     client: search
     columns:
     - admin_ui: {order: 0, width: 200}
-      name: name
+      name: label_text
       type: string
     - admin_ui: {order: 1, width: 200}
-      name: layout
+      name: scale_name
+      type: string
+    - admin_ui: {order: 2, width: 200}
+      name: scale_definition
       type: string
     server: search
-    title: scales_extra
+    title: button_scale_definitions
+  listbox_scale_definitions:
+    client: search
+    columns:
+    - admin_ui: {order: 0, width: 200}
+      name: listbox_text
+      type: string
+    - admin_ui: {order: 1, width: 200}
+      name: scale_name
+      type: string
+    - admin_ui: {order: 2, width: 200}
+      name: scale_definition
+      type: string
+    server: full
+    title: listbox_scale_definitions
 dependencies: []
 name: M3 App 2
 package_name: M3_App_2

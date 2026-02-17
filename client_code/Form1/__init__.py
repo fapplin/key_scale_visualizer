@@ -68,7 +68,8 @@ class Form1(Form1Template):
     self.chosen_scale = 'None'
 
     # Any code you write here will run before the form opens.
-    scales_list = [(scales['name'], scales['layout']) for scales in app_tables.scales_extra.search()]
+    scales_list = [(scales['listbox_text'], scales['scale_definition']) for scales in app_tables.listbox_scale_definitions.search()]
+    #scales_list = [(scales['name'], scales['layout']) for scales in app_tables.scales_extra.search()]
     print(scales_list)
     self.drop_down_scales_extra.items = scales_list
     # Create a radio-like group
@@ -120,34 +121,12 @@ class Form1(Form1Template):
 
   def scale_option_changed(self, selected_value):
     my_choice = 'None'
-    if selected_value == 'Major':
-      my_choice = "major"
-    elif selected_value == 'Minor':
-      my_choice ="natural_minor"
-    elif selected_value == 'MajBlu':
-      my_choice = "major_blues"
-    elif selected_value == 'MinBlu':
-      my_choice = "minor_blues"
-    elif selected_value == 'MajPen':
-      my_choice = "major_pentatonic"
-    elif selected_value == 'MinPen':
-      my_choice = "minor_pentatonic"
-    elif selected_value == 'MajHar':
-      my_choice = "None"
-    elif selected_value == 'MinHar':
-      my_choice = "harmonic_minor"
-    elif selected_value == 'Dor':
-      my_choice = "dorian"
-    elif selected_value == 'Phr':
-      my_choice ="phrygian"
-    elif selected_value == 'Lyd':
-      my_choice = "lydian"
-    elif selected_value == 'Mix':
-      my_choice = "mixolydian"
-    elif selected_value == 'Aeo':
-      my_choice = "aeolian"
-
-    self.chosen_scale = selected_value
+    scale_name = app_tables.button_scale_definitions.search(label_text=selected_value)
+    print("scale_name:")
+    for data in scale_name:
+      my_choice = data["scale_name"]
+    print(my_choice)
+    self.chosen_scale = my_choice
     anvil.server.call('pico_fn_scales', my_choice) # Choose any number you like!
 
   @handle("drop_down_scales_extra", "change")
