@@ -73,6 +73,8 @@ class KeyScaleForm(KeyScaleFormTemplate):
     #scales_list = [(scales['name'], scales['layout']) for scales in app_tables.scales_extra.search()]
     print(scales_list)
     self.drop_down_scales_extra.items = scales_list
+    self.refresh_data_bindings()
+    
     # Create a radio-like group
     self.radio_group_key = RadioButtonGroup(
       [self.button_a, self.button_ab, self.button_b, self.button_bb,
@@ -160,6 +162,12 @@ class KeyScaleForm(KeyScaleFormTemplate):
   def link_edit_misc_modes_click(self, **event_args):
     """This method is called when the link is clicked"""
     open_form(ScaleDefsList(previous_form=self))
+    
+    item_list = []
+    for row in app_tables.listbox_scale_definitions.search():
+      item_list.append((row["listbox_text"], row))
+
+    self.drop_down_scales_extra.items = item_list
 
 
     
