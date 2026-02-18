@@ -169,6 +169,7 @@ class KeyScaleForm(KeyScaleFormTemplate):
   def button_edit_modes_click(self, **event_args):
     """This method is called when the button is clicked"""
     open_form(ScaleDefsList(previous_form=self))
+    
 
   @handle("button_edit_leds", "click")
   def button_edit_leds_click(self, **event_args):
