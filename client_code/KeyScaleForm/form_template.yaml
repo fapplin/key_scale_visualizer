@@ -159,9 +159,9 @@ components:
       name: button_aeo
       properties: {background: 'theme:Secondary', foreground: 'theme:On Secondary', role: elevated-button, text: Aeo}
       type: Button
-    - layout_properties: {col_xs: 3, row: KRQREL, width_xs: 2}
+    - layout_properties: {col_xs: 2, row: KRQREL, width_xs: 3}
       name: label_4
-      properties: {text: 'Misc. Modes:'}
+      properties: {align: right, text: 'Misc. Modes:'}
       type: Label
     - data_bindings:
       - {code: 'self.item['''']', property: selected_value, writeback: false}
@@ -172,9 +172,9 @@ components:
         items: []
       type: DropDown
     - event_bindings: {}
-      layout_properties: {col_xs: 9, row: KRQREL, width_xs: 2}
+      layout_properties: {col_xs: 8, row: KRQREL, width_xs: 2}
       name: button_startleds
-      properties: {background: 'theme:Tertiary', foreground: 'theme:On Tertiary', text: Start}
+      properties: {background: 'theme:Tertiary', foreground: 'theme:On Tertiary', text: LEDs}
       type: Button
     layout_properties: {grid_position: 'IVDEQV,FCZSDW'}
     name: grid_panel_5
@@ -182,6 +182,21 @@ components:
       background: theme:Surface Variant
       spacing:
         margin: ['1', null, '1', null]
+    type: GridPanel
+  - components:
+    - event_bindings: {}
+      layout_properties: {col_xs: 0, row: RLGCYO, width_xs: 3}
+      name: button_edit_leds
+      properties: {role: elevated-button, text: Edit LEDs}
+      type: Button
+    - event_bindings: {}
+      layout_properties: {col_xs: 0, row: RLGCYO, width_xs: 3}
+      name: button_edit_modes
+      properties: {role: elevated-button, text: Edit Modes}
+      type: Button
+    layout_properties: {grid_position: 'YTSUDA,HSQEIH'}
+    name: grid_panel_6
+    properties: {}
     type: GridPanel
   - components:
     - layout_properties: {col_xs: 0, row: OSPJPN, width_xs: 3}
@@ -196,12 +211,7 @@ components:
   name: content_panel
   properties: {col_widths: '{}'}
   type: ColumnPanel
-- components:
-  - event_bindings: {}
-    layout_properties: {}
-    name: link_edit_misc_modes
-    properties: {text: Edit Misc. Modes}
-    type: Link
+- components: []
   layout_properties: {slot: nav-right}
   name: navbar_links
   properties: {}

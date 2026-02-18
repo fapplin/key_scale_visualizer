@@ -67,13 +67,14 @@ class KeyScaleForm(KeyScaleFormTemplate):
     self.init_components(**properties)
     self.chosen_key = 'None'
     self.chosen_scale = 'None'
+    self.refresh_data_bindings()
 
     # Any code you write here will run before the form opens.
     scales_list = [(scales['listbox_text'], scales['scale_definition']) for scales in app_tables.listbox_scale_definitions.search()]
     #scales_list = [(scales['name'], scales['layout']) for scales in app_tables.scales_extra.search()]
     print(scales_list)
     self.drop_down_scales_extra.items = scales_list
-    self.refresh_data_bindings()
+
     
     # Create a radio-like group
     self.radio_group_key = RadioButtonGroup(
@@ -135,6 +136,7 @@ class KeyScaleForm(KeyScaleFormTemplate):
   @handle("drop_down_scales_extra", "change")
   def drop_down_scales_extra_change(self, **event_args):
     """This method is called when an item is selected"""
+    #self.refresh_data_bindings()
     my_tuple = find_tuples_with_string(self.drop_down_scales_extra.items, self.drop_down_scales_extra.selected_value)
     print(my_tuple)
     my_list = tuple_to_list(my_tuple[0])
@@ -161,13 +163,17 @@ class KeyScaleForm(KeyScaleFormTemplate):
   @handle("link_edit_misc_modes", "click")
   def link_edit_misc_modes_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form(ScaleDefsList(previous_form=self))
-    
-    item_list = []
-    for row in app_tables.listbox_scale_definitions.search():
-      item_list.append((row["listbox_text"], row))
 
-    self.drop_down_scales_extra.items = item_list
+
+  @handle("button_edit_modes", "click")
+  def button_edit_modes_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    open_form(ScaleDefsList(previous_form=self))
+
+  @handle("button_edit_leds", "click")
+  def button_edit_leds_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    pass
 
 
     
