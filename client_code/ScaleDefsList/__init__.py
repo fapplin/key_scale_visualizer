@@ -52,5 +52,7 @@ class ScaleDefsList(ScaleDefsListTemplate):
   @handle("button_1", "click")
   def button_1_click(self, **event_args):
     """This method is called when the button is clicked"""
-    
+    if self.previous_form:
+      self.previous_form.load_dropdown_data()
+
     open_form(self.previous_form)

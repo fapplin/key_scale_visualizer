@@ -94,6 +94,13 @@ class KeyScaleForm(KeyScaleFormTemplate):
       on_change=self.scale_option_changed
     )
 
+  def load_dropdown_data(self):
+    """Load or refresh data for this form."""
+    scales_list = [(scales['listbox_text'], scales['scale_definition']) for scales in app_tables.listbox_scale_definitions.search()]
+    #scales_list = [(scales['name'], scales['layout']) for scales in app_tables.scales_extra.search()]
+    print(scales_list)
+    self.drop_down_scales_extra.items = scales_list
+
   def key_option_changed(self, selected_value):
     my_choice = -1
     if selected_value == 'C':
@@ -137,7 +144,6 @@ class KeyScaleForm(KeyScaleFormTemplate):
   @handle("drop_down_scales_extra", "change")
   def drop_down_scales_extra_change(self, **event_args):
     """This method is called when an item is selected"""
-    self.refresh_data_bindings()
     my_tuple = find_tuples_with_string(self.drop_down_scales_extra.items, self.drop_down_scales_extra.selected_value)
     print(my_tuple)
     my_list = tuple_to_list(my_tuple[0])
