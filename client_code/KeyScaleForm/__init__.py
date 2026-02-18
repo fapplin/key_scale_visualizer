@@ -1,4 +1,5 @@
 from ._anvil_designer import KeyScaleFormTemplate
+from anvil_extras.utils import auto_refreshing
 from anvil import *
 import anvil.tables as tables
 import anvil.tables.query as q
@@ -136,7 +137,7 @@ class KeyScaleForm(KeyScaleFormTemplate):
   @handle("drop_down_scales_extra", "change")
   def drop_down_scales_extra_change(self, **event_args):
     """This method is called when an item is selected"""
-    #self.refresh_data_bindings()
+    self.refresh_data_bindings()
     my_tuple = find_tuples_with_string(self.drop_down_scales_extra.items, self.drop_down_scales_extra.selected_value)
     print(my_tuple)
     my_list = tuple_to_list(my_tuple[0])

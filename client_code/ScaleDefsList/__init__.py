@@ -6,6 +6,7 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 from ..ScaleDefsEdit import ScaleDefsEdit
 
+
 class ScaleDefsList(ScaleDefsListTemplate):
   def __init__(self, previous_form=None, **properties):
     # Set Form properties and Data Bindings.
@@ -51,4 +52,5 @@ class ScaleDefsList(ScaleDefsListTemplate):
   @handle("button_1", "click")
   def button_1_click(self, **event_args):
     """This method is called when the button is clicked"""
+    
     open_form(self.previous_form)
