@@ -30,5 +30,8 @@ def update_scale_definition(scale_definition, scale_data):
 def delete_scale_definition(scale_definition):
   scale_definition.delete()    
 
-
+@anvil.server.callable
+def edit_led_positions(led_data):
+  if led_data.get('number_of_leds') and led_data.get('led_positions'):
+    app_tables.led_positions.add_row(**led_data)
   

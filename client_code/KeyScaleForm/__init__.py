@@ -6,6 +6,7 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.server
 from ..ScaleDefsList import ScaleDefsList
+from ..LEDPositionsEdit import LEDPositionsEdit
 
 button_clicked_flag = False
 
@@ -181,7 +182,17 @@ class KeyScaleForm(KeyScaleFormTemplate):
   @handle("button_edit_leds", "click")
   def button_edit_leds_click(self, **event_args):
     """This method is called when the button is clicked"""
-    pass
+    print("in button_edit_leds")
+    items = app_tables.led_positions.search()
+    for item in items:
+      print(item['number_of_leds'])
+      editing_form = LEDPositionsEdit(item=item)
+
+    #if the user clicks OK on the alert
+    if alert(content=editing_form, large=True):
+      #add the led_positions to the Data Table with the filled in information
+      anvil.server.call('edit_led_positions', item)
+     
 
 
     

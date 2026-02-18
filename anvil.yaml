@@ -14,6 +14,17 @@ db_schema:
       type: string
     server: search
     title: button_scale_definitions
+  led_positions:
+    client: full
+    columns:
+    - admin_ui: {order: 0, width: 200}
+      name: number_of_leds
+      type: number
+    - admin_ui: {order: 1, width: 200}
+      name: led_positions
+      type: string
+    server: search
+    title: LED_Positions
   listbox_scale_definitions:
     client: full
     columns:
