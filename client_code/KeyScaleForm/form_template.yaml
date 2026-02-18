@@ -196,7 +196,13 @@ components:
   name: content_panel
   properties: {col_widths: '{}'}
   type: ColumnPanel
-- layout_properties: {slot: nav-right}
+- components:
+  - event_bindings: {}
+    layout_properties: {}
+    name: link_edit_misc_modes
+    properties: {text: Edit Misc. Modes}
+    type: Link
+  layout_properties: {slot: nav-right}
   name: navbar_links
   properties: {}
   type: FlowPanel

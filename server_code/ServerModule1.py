@@ -15,3 +15,16 @@ import anvil.server
 #   print("Hello, " + name + "!")
 #   return 42
 #
+@anvil.server.callable
+def add_scale_definition(scale_data):
+  if scale_data.get('listbox_text') and scale_data.get('scale_name') and scale_data.get('scale_definition'):
+    app_tables.listbox_scale_definitions.add_row(**scale_data)
+
+@anvil.server.callable
+def update_scale_definition(scale_definition, scale_data):
+  if scale_data['listbox_text'] and scale_data['scale_name'] and scale_data['scale_definition']:
+    scale_definition.update(**scale_data)
+
+@anvil.server.callable
+def delete_scale_definition(scale_definition):
+  scale_definition.delete()    

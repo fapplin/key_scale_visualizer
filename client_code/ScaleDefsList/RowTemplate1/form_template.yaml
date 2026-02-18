@@ -1,0 +1,17 @@
+components:
+- layout_properties: {column: LAVJMI}
+  name: button_edit_row
+  properties: {align: right, icon: 'fa:edit', text: ''}
+  type: Button
+- event_bindings: {}
+  layout_properties: {column: LAVJMI}
+  name: button_delete_row
+  properties: {align: right, icon: 'fa:trash', text: ''}
+  type: Button
+- components: []
+  layout_properties: {column: LAVJMI}
+  name: flow_panel_1
+  properties: {}
+  type: FlowPanel
+container: {type: DataRowPanel}
+is_package: true

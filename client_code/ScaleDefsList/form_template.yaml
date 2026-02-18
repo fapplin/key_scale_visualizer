@@ -1,0 +1,31 @@
+components:
+- components:
+  - name: repeating_panel_1
+    properties: {item_template: ScaleDefsList.RowTemplate1}
+    type: RepeatingPanel
+  layout_properties: {grid_position: 'BPADYZ,RLIUHN'}
+  name: data_grid_1
+  properties:
+    columns:
+    - {data_key: listbox_text, id: JKSDUP, title: listbox_text}
+    - {data_key: scale_name, id: VJQQOR, title: scale_name}
+    - {data_key: scale_definition, id: OJLQEN, title: scale_definition}
+    - {data_key: column_1, id: LAVJMI, title: Column 1}
+  type: DataGrid
+- components:
+  - event_bindings: {}
+    layout_properties: {col_xs: 0, row: DKWVZT, width_xs: 4}
+    name: button_add_scale_definition
+    properties: {role: elevated-button, text: Add Scale Definition}
+    type: Button
+  - event_bindings: {}
+    layout_properties: {col_xs: 8, row: DKWVZT, width_xs: 4}
+    name: button_1
+    properties: {role: elevated-button, text: Close}
+    type: Button
+  layout_properties: {grid_position: 'EUHFME,MYCJGG'}
+  name: grid_panel_1
+  properties: {}
+  type: GridPanel
+container: {type: ColumnPanel}
+is_package: true

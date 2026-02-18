@@ -1,9 +1,10 @@
-from ._anvil_designer import Form1Template
+from ._anvil_designer import KeyScaleFormTemplate
 from anvil import *
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.server
+from ..ScaleDefsList import ScaleDefsList
 
 button_clicked_flag = False
 
@@ -60,7 +61,7 @@ class RadioButtonGroup:
     return self.selected
 
   
-class Form1(Form1Template):
+class KeyScaleForm(KeyScaleFormTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
@@ -154,6 +155,11 @@ class Form1(Form1Template):
       return
     self.label_error_status.text = ""  
     anvil.server.call('pico_fn_startleds', 18) # Choose any number you like!
+
+  @handle("link_edit_misc_modes", "click")
+  def link_edit_misc_modes_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form(ScaleDefsList(previous_form=self))
 
 
     
