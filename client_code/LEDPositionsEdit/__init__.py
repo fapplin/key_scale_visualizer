@@ -12,6 +12,5 @@ class LEDPositionsEdit(LEDPositionsEditTemplate):
     self.init_components(**properties)
 
     # Any code you write here will run before the form opens.
-       
     self.text_box_number_of_leds.text = str(self.item['number_of_leds'])
     self.text_box_led_positions.text = self.item['led_positions']

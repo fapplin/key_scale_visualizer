@@ -23,7 +23,7 @@ db_schema:
     - admin_ui: {order: 1, width: 200}
       name: led_positions
       type: string
-    server: search
+    server: full
     title: LED_Positions
   listbox_scale_definitions:
     client: full

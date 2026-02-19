@@ -183,15 +183,9 @@ class KeyScaleForm(KeyScaleFormTemplate):
   def button_edit_leds_click(self, **event_args):
     """This method is called when the button is clicked"""
     print("in button_edit_leds")
-    items = app_tables.led_positions.search()
-    for item in items:
-      print(item['number_of_leds'])
-      editing_form = LEDPositionsEdit(item=item)
 
-    #if the user clicks OK on the alert
-    if alert(content=editing_form, large=True):
-      #add the led_positions to the Data Table with the filled in information
-      anvil.server.call('edit_led_positions', item)
+      
+      
      
 
 
