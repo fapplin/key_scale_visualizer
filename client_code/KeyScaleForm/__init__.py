@@ -71,6 +71,13 @@ class KeyScaleForm(KeyScaleFormTemplate):
     self.chosen_scale = 'None'
     self.refresh_data_bindings()
 
+    led_pos = []
+    led_pos = app_tables.led_positions.search()
+    for item in led_pos:
+      anvil.server.call('pico_fn_number_of_leds', item['number_of_leds'])
+      anvil.server.call('pico_fn_led_positions', item['led_positions'])
+      anvil.server.call('pico_fn_number_of_octaves', item['number_of_octaves'] ) # Choose any number you like!
+
     # Any code you write here will run before the form opens.
     scales_list = [(scales['listbox_text'], scales['scale_definition']) for scales in app_tables.listbox_scale_definitions.search()]
     #scales_list = [(scales['name'], scales['layout']) for scales in app_tables.scales_extra.search()]
@@ -183,6 +190,7 @@ class KeyScaleForm(KeyScaleFormTemplate):
   def button_edit_leds_click(self, **event_args):
     """This method is called when the button is clicked"""
     print("in button_edit_leds")
+    open_form(LEDPositionsEdit(previous_form=self))
 
       
       

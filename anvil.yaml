@@ -17,11 +17,14 @@ db_schema:
   led_positions:
     client: full
     columns:
-    - admin_ui: {order: 0, width: 200}
-      name: number_of_leds
-      type: number
     - admin_ui: {order: 1, width: 200}
       name: led_positions
+      type: string
+    - admin_ui: {order: 2, width: 200}
+      name: number_of_octaves
+      type: string
+    - admin_ui: {order: 0, width: 200}
+      name: number_of_leds
       type: string
     server: full
     title: LED_Positions
