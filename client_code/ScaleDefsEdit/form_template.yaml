@@ -2,37 +2,37 @@ components:
 - components:
   - layout_properties: {col_xs: 1, row: FMSEUD, width_xs: 4}
     name: label_1
-    properties: {align: right, text: 'listbox_text:'}
+    properties: {align: right, text: 'Dropdown Text:'}
     type: Label
   - data_bindings:
     - {code: 'self.item[''listbox_text'']', property: text, writeback: true}
     layout_properties: {col_xs: 6, row: FMSEUD, width_xs: 4}
     name: text_box_listbox_text
-    properties: {}
+    properties: {role: outlined}
     type: TextBox
   - layout_properties: {col_xs: 1, row: MZYZZS, width_xs: 4}
     name: label_2
-    properties: {align: right, text: 'scale_name:'}
+    properties: {align: right, text: 'Scale Name:'}
     type: Label
   - data_bindings:
     - {code: 'self.item[''scale_name'']', property: text, writeback: true}
     layout_properties: {col_xs: 6, row: MZYZZS, width_xs: 4}
     name: text_box_scale_name
-    properties: {}
+    properties: {role: outlined}
     type: TextBox
   - layout_properties: {col_xs: 1, row: YIDZHJ, width_xs: 4}
     name: label_3
-    properties: {align: right, text: 'scale_definition:'}
+    properties: {align: right, text: 'Scale Definition:'}
     type: Label
   - data_bindings:
     - {code: 'self.item[''scale_definition'']', property: text, writeback: true}
     layout_properties: {col_xs: 6, row: YIDZHJ, width_xs: 4}
     name: text_box_scale_definition
-    properties: {}
+    properties: {role: outlined}
     type: TextBox
   layout_properties: {grid_position: 'BPTEYR,GTHFRK'}
   name: grid_panel_1
-  properties: {}
+  properties: {background: 'theme:Secondary Container'}
   type: GridPanel
 container: {type: ColumnPanel}
 is_package: true

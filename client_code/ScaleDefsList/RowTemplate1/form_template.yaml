@@ -13,5 +13,8 @@ components:
   name: button_delete_row
   properties: {align: right, icon: 'fa:trash', text: ''}
   type: Button
-container: {type: DataRowPanel}
+container:
+  data_bindings: []
+  properties: {background: 'theme:Surface Variant', border: '2', foreground: 'theme:On Primary Container'}
+  type: DataRowPanel
 is_package: true

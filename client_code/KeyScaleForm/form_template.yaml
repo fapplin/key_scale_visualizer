@@ -187,10 +187,10 @@ components:
     - event_bindings: {}
       layout_properties: {col_xs: 0, row: RLGCYO, width_xs: 3}
       name: button_edit_leds
-      properties: {role: elevated-button, text: Edit LEDs}
+      properties: {role: elevated-button, text: LED Parameters}
       type: Button
     - event_bindings: {}
-      layout_properties: {col_xs: 0, row: RLGCYO, width_xs: 3}
+      layout_properties: {col_xs: 3, row: RLGCYO, width_xs: 3}
       name: button_edit_modes
       properties: {role: elevated-button, text: Edit Modes}
       type: Button
