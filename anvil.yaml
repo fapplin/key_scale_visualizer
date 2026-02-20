@@ -14,8 +14,7 @@ db_schema:
       type: string
     - admin_ui: {width: 200}
       name: color
-      target: neopixel_color_definitions
-      type: link_single
+      type: string
     server: search
     title: button_scale_definitions
   led_positions:

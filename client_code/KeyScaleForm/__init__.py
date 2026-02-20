@@ -141,22 +141,36 @@ class KeyScaleForm(KeyScaleFormTemplate):
 
   def scale_option_changed(self, selected_value):
     my_choice = 'None'
+    my_color = 'blue'
     button_scale_defs = app_tables.button_scale_definitions.search(label_text=selected_value)
     print("scale_name:")
     for data in button_scale_defs:
       my_choice = data["scale_definition"]
-    print(my_choice)
+      my_color = data["color"]
+      
+    print(f"my_choice: {my_choice}")
+    print(f"my_color: {my_color}")
     self.chosen_scale = my_choice
     anvil.server.call('pico_fn_scales', my_choice) # Choose any number you like!
-
+    anvil.server.call('pico_fn_scale_color', my_color) # Choose any number you like!
+    
   @handle("drop_down_scales_extra", "change")
   def drop_down_scales_extra_change(self, **event_args):
     """This method is called when an item is selected"""
+    my_color = "blue"
     my_tuple = find_tuples_with_string(self.drop_down_scales_extra.items, self.drop_down_scales_extra.selected_value)
-    print(my_tuple)
+    print(f"my_tuple: {my_tuple}")
     my_list = tuple_to_list(my_tuple[0])
     anvil.server.call('pico_fn_scales', self.drop_down_scales_extra.selected_value) # Choose any number you like!
     self.chosen_scale = my_list[0]
+    print(my_list[0])
+    items = app_tables.listbox_scale_definitions.search(listbox_text=my_list[0])
+    print(len(items))
+    for item in items:
+      my_color = item['color']
+      print(f"item: {item['color']}")
+      
+    anvil.server.call('pico_fn_scale_color', my_color) # Choose any number you like!
   
   @handle("button_startleds", "click")
   def button_startleds_click(self, **event_args):

@@ -43,7 +43,6 @@ def get_dropdown_color_items():
   try:
     rows = app_tables.neopixel_color_definitions.search()  # Replace 'products' with your table name
     items = [(row['color_name']) for row in rows if row['color_name']]
-    print(items)
     return items
   except Exception as e:
     # Log error and return empty list

@@ -34,7 +34,9 @@ components:
     name: label_4
     properties: {align: right, text: 'Color:'}
     type: Label
-  - layout_properties: {col_xs: 6, row: ULRUCH, width_xs: 4}
+  - data_bindings:
+    - {code: 'self.item[''color'']', property: selected_value, writeback: true}
+    layout_properties: {col_xs: 6, row: ULRUCH, width_xs: 4}
     name: drop_down_color
     properties: {}
     type: DropDown
