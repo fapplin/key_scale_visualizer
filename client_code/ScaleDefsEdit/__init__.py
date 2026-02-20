@@ -14,7 +14,7 @@ class ScaleDefsEdit(ScaleDefsEditTemplate):
 
   def load_dropdown(self):
     try:
-      items = anvil.server.call('get_dropdown_items')
+      items = anvil.server.call('get_dropdown_color_items')
       self.drop_down_color.items = items  # items is a list of (text, value) tuples
     except Exception as e:
       print(f"Error loading dropdown: {e}")

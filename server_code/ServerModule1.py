@@ -18,12 +18,12 @@ import anvil.server
 #
 @anvil.server.callable
 def add_scale_definition(scale_data):
-  if scale_data.get('listbox_text') and scale_data.get('scale_name') and scale_data.get('scale_definition'):
+  if scale_data.get('listbox_text') and scale_data.get('scale_name') and scale_data.get('scale_definition') and scale_data.get('color'):
     app_tables.listbox_scale_definitions.add_row(**scale_data)
 
 @anvil.server.callable
 def update_scale_definition(scale_definition, scale_data):
-  if scale_data['listbox_text'] and scale_data['scale_name'] and scale_data['scale_definition']:
+  if scale_data['listbox_text'] and scale_data['scale_name'] and scale_data['scale_definition'] and scale_data['color']:
     scale_definition.update(**scale_data)
 
 @anvil.server.callable
@@ -35,14 +35,15 @@ def edit_led_positions(led_data):
   pass
 
 @anvil.server.callable
-def get_dropdown_items():
+def get_dropdown_color_items():
   """
-    Fetches items from the 'products' table and returns them as a list of tuples
+    Fetches items from the 'neopixel_color_definitions' table and returns them as a list of tuples
     (display_text, value) for the DropDown component.
     """
   try:
     rows = app_tables.neopixel_color_definitions.search()  # Replace 'products' with your table name
-    items = [(row['color_name'], row['red_green_blue']) for row in rows if row['color_name'] and row['red_green_blue']]
+    items = [(row['color_name']) for row in rows if row['color_name']]
+    print(items)
     return items
   except Exception as e:
     # Log error and return empty list

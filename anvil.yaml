@@ -3,16 +3,16 @@ db_schema:
   button_scale_definitions:
     client: search
     columns:
-    - admin_ui: {order: 0, width: 200}
+    - admin_ui: {width: 200}
       name: label_text
       type: string
-    - admin_ui: {order: 1, width: 200}
+    - admin_ui: {width: 200}
       name: scale_name
       type: string
-    - admin_ui: {order: 2, width: 200}
+    - admin_ui: {width: 200}
       name: scale_definition
       type: string
-    - admin_ui: {order: 3, width: 200}
+    - admin_ui: {width: 200}
       name: color
       target: neopixel_color_definitions
       type: link_single
@@ -21,43 +21,39 @@ db_schema:
   led_positions:
     client: full
     columns:
-    - admin_ui: {order: 1, width: 200}
+    - admin_ui: {width: 200}
+      name: number_of_leds
+      type: string
+    - admin_ui: {width: 200}
       name: led_positions
       type: string
-    - admin_ui: {order: 2, width: 200}
+    - admin_ui: {width: 200}
       name: number_of_octaves
-      type: string
-    - admin_ui: {order: 0, width: 200}
-      name: number_of_leds
       type: string
     server: full
     title: LED_Positions
   listbox_scale_definitions:
     client: full
     columns:
-    - admin_ui: {order: 0, width: 200}
+    - admin_ui: {width: 200}
       name: listbox_text
       type: string
-    - admin_ui: {order: 1, width: 200}
+    - admin_ui: {width: 200}
       name: scale_name
       type: string
-    - admin_ui: {order: 2, width: 200}
+    - admin_ui: {width: 200}
       name: scale_definition
       type: string
-    - admin_ui: {order: 3, width: 200}
+    - admin_ui: {width: 200}
       name: color
-      target: neopixel_color_definitions
-      type: link_single
+      type: string
     server: full
     title: listbox_scale_definitions
   neopixel_color_definitions:
     client: full
     columns:
-    - admin_ui: {order: 0, width: 200}
+    - admin_ui: {width: 200}
       name: color_name
-      type: string
-    - admin_ui: {order: 1, width: 200}
-      name: red_green_blue
       type: string
     server: full
     title: neopixel_color_definitions
