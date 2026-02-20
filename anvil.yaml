@@ -12,6 +12,10 @@ db_schema:
     - admin_ui: {order: 2, width: 200}
       name: scale_definition
       type: string
+    - admin_ui: {order: 3, width: 200}
+      name: color
+      target: neopixel_color_definitions
+      type: link_single
     server: search
     title: button_scale_definitions
   led_positions:
@@ -40,8 +44,23 @@ db_schema:
     - admin_ui: {order: 2, width: 200}
       name: scale_definition
       type: string
+    - admin_ui: {order: 3, width: 200}
+      name: color
+      target: neopixel_color_definitions
+      type: link_single
     server: full
     title: listbox_scale_definitions
+  neopixel_color_definitions:
+    client: full
+    columns:
+    - admin_ui: {order: 0, width: 200}
+      name: color_name
+      type: string
+    - admin_ui: {order: 1, width: 200}
+      name: red_green_blue
+      type: string
+    server: full
+    title: neopixel_color_definitions
 dependencies:
 - dep_id: dep_o8zvvm7m0g7a5m
   resolution_hints: {app_id: C6ZZPAPN4YYF5NVJ, name: Anvil Extras, package_name: anvil_extras}

@@ -33,4 +33,19 @@ def delete_scale_definition(scale_definition):
 @anvil.server.callable
 def edit_led_positions(led_data):
   pass
+
+@anvil.server.callable
+def get_dropdown_items():
+  """
+    Fetches items from the 'products' table and returns them as a list of tuples
+    (display_text, value) for the DropDown component.
+    """
+  try:
+    rows = app_tables.neopixel_color_definitions.search()  # Replace 'products' with your table name
+    items = [(row['color_name'], row['red_green_blue']) for row in rows if row['color_name'] and row['red_green_blue']]
+    return items
+  except Exception as e:
+    # Log error and return empty list
+    print(f"Error fetching dropdown items: {e}")
+    return []
   

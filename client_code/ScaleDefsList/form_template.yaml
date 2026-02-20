@@ -16,6 +16,7 @@ components:
     - {data_key: listbox_text, id: JKSDUP, title: listbox_text}
     - {data_key: scale_name, id: VJQQOR, title: scale_name}
     - {data_key: scale_definition, id: OJLQEN, title: scale_definition}
+    - {data_key: color, id: TTCIIS, title: color}
     - {data_key: column_1, expand: false, id: LAVJMI, title: Edit, width: 90.199951171875}
     - {data_key: column_2, expand: false, id: DEFKGH, title: Delete, width: 77.5333251953125}
   type: DataGrid
@@ -27,7 +28,7 @@ components:
     type: Button
   - event_bindings: {}
     layout_properties: {col_xs: 8, row: DKWVZT, width_xs: 4}
-    name: button_1
+    name: button_close
     properties: {role: elevated-button, text: Close}
     type: Button
   layout_properties: {grid_position: 'EUHFME,MYCJGG'}

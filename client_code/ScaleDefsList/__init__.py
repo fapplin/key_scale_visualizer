@@ -49,8 +49,8 @@ class ScaleDefsList(ScaleDefsListTemplate):
       #refresh the Data Grid
       self.repeating_panel_1.items = app_tables.listbox_scale_definitions.search()
 
-  @handle("button_1", "click")
-  def button_1_click(self, **event_args):
+  @handle("button_close", "click")
+  def button_close_click(self, **event_args):
     """This method is called when the button is clicked"""
     if self.previous_form:
       self.previous_form.load_dropdown_data()
