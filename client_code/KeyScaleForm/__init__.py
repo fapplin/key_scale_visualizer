@@ -187,7 +187,7 @@ class KeyScaleForm(KeyScaleFormTemplate):
       self.label_error_status.text = "No scale has been chosen."
       return
     self.label_error_status.text = ""  
-    anvil.server.call('pico_fn_startleds', 18) # Choose any number you like!
+    anvil.server.call('pico_fn_startleds') # Choose any number you like!
 
   @handle("link_edit_misc_modes", "click")
   def link_edit_misc_modes_click(self, **event_args):
