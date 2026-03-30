@@ -60,8 +60,9 @@ dependencies:
 - dep_id: dep_o8zvvm7m0g7a5m
   resolution_hints: {app_id: C6ZZPAPN4YYF5NVJ, name: Anvil Extras, package_name: anvil_extras}
   version: {version_tag: v3.6.1}
+metadata: {title: This uses neopixels on a RPi2 Zero to display chosen key and scale.}
 name: M3 App 2
-package_name: M3_App_2
+package_name: key_scale_visualizer
 renamed: true
 runtime_options:
   client_version: '3'
