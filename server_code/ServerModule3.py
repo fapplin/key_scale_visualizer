@@ -5,7 +5,7 @@ import csv
 
 # ====== CONFIGURATION ======
 # This path only exists on your Raspberry Pi
-PI_FILE_PATH = "/home/frank/anvildir/led_client/leds.txt"
+PI_FILE_PATH = "/home/frank/anvildir/M3_App_2/services/leds.txt"
 
 CHROMATIC = ["C", "C#", "D", "D#", "E", "F",
              "F#", "G", "G#", "A", "A#", "B"]
