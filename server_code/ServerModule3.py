@@ -215,12 +215,13 @@ def pico_fn_leds_off():
     led_cnt = len(string_list) - 2
     
     # Iterate through piano keys (adjust range to match available LEDs)
-    for i in range(len(piano_keys) - 1, -1, -1):
-        if led_cnt < 0: break # Safety check
-        
-        state = "off"
-        output_lines.append(f"{string_list[led_cnt]},{state}")
-        led_cnt -= 1
+    print("len(piano_keys):")
+    print(len(piano_keys))
+    for i in range(len(piano_keys), -1, -1):
+      if led_cnt < 0: break # Safety check
+      state = "off"
+      output_lines.append(f"{string_list[led_cnt]},{state}")
+      led_cnt -= 1
 
     final_file_content = "\n".join(output_lines)
 
