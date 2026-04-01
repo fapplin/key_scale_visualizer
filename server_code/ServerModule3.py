@@ -111,7 +111,11 @@ def pico_fn_scale_color(scale_color):
 def pico_fn_startleds():
     # 1. Validation
     sel_key = anvil.server.session.get("selected_key")
+    print("sel_key:")
+    print(sel_key)
     chosen_scale = anvil.server.session.get("chosen_scale")
+    print("chosen_scale:")
+    print(chosen_scale)
     led_pos_str = anvil.server.session.get("LED_Positions")
     
     if sel_key is None or chosen_scale is None or not led_pos_str:
@@ -126,6 +130,9 @@ def pico_fn_startleds():
     num_octaves = anvil.server.session.get("nbr_of_piano_octaves", 1)
     for _ in range(num_octaves):
         piano_keys.extend(octave_mask)
+
+    print("piano_keys:")
+    print(piano_keys)
     
     # 3. Parse the LED positions CSV string
     f = io.StringIO(led_pos_str)
@@ -144,7 +151,7 @@ def pico_fn_startleds():
     
     # We map the piano keys to the LED list
     # Your original logic used a reverse led_cnt, so we match that here
-    led_cnt = len(string_list) - 1
+    led_cnt = len(string_list) - 2
     
     # Iterate through piano keys (adjust range to match available LEDs)
     for i in range(len(piano_keys) - 1, -1, -1):
