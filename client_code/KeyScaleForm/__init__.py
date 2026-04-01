@@ -206,6 +206,11 @@ class KeyScaleForm(KeyScaleFormTemplate):
     print("in button_edit_leds")
     open_form(LEDPositionsEdit(previous_form=self))
 
+  @handle("button_leds_off", "click")
+  def button_leds_off_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    anvil.server.call('pico_fn_leds_off') # Choose any number you like!
+
       
       
      

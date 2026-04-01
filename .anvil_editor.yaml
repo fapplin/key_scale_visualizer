@@ -11,5 +11,6 @@ unique_ids:
   modules: {}
   scripts: {}
   server_modules:
+    ErrorLogger: AFPIZ6VOXU3HBXHRDVAI36JJ2QEI56FK
     ServerModule1: '1771360716892830485817418.9866'
     ServerModule3: '1774891539374316980111188.1787'

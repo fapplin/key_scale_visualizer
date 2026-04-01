@@ -174,7 +174,12 @@ components:
     - event_bindings: {}
       layout_properties: {col_xs: 8, row: KRQREL, width_xs: 2}
       name: button_startleds
-      properties: {background: 'theme:Tertiary', foreground: 'theme:On Tertiary', text: LEDs}
+      properties: {background: 'theme:Tertiary', foreground: 'theme:On Tertiary', text: LEDs On}
+      type: Button
+    - event_bindings: {}
+      layout_properties: {col_xs: 8, row: KRQREL, width_xs: 2}
+      name: button_leds_off
+      properties: {background: 'theme:Tertiary', foreground: 'theme:On Secondary', text: LEDs Off}
       type: Button
     layout_properties: {grid_position: 'IVDEQV,FCZSDW'}
     name: grid_panel_5

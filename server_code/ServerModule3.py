@@ -160,3 +160,19 @@ def pico_fn_startleds():
     save_to_pi_or_console(final_file_content)
     
     return 1
+
+@anvil.server.callable()
+def pico_fn_leds_off():
+  output_lines = []
+  nbr_total_leds = int(anvil.server.session.get("number_of_leds"))
+  output_lines.append(str(nbr_total_leds))
+
+  # Iterate through piano keys (adjust range to match available LEDs)
+  for i in range(0, nbr_total_leds):
+    output_lines.append(f"{i},'off'")
+  final_file_content = "\n".join(output_lines)
+
+  # 5. Save/Print
+  save_to_pi_or_console(final_file_content)
+
+  return 1
