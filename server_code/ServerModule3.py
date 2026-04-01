@@ -170,16 +170,61 @@ def pico_fn_startleds():
 
 @anvil.server.callable()
 def pico_fn_leds_off():
-  output_lines = []
-  nbr_total_leds = int(anvil.server.session.get("number_of_leds"))
-  output_lines.append(str(nbr_total_leds))
+    # 1. Validation
+    sel_key = anvil.server.session.get("selected_key")
+    print("sel_key:")
+    print(sel_key)
+    chosen_scale = anvil.server.session.get("chosen_scale")
+    print("chosen_scale:")
+    print(chosen_scale)
+    led_pos_str = anvil.server.session.get("LED_Positions")
+    
+    if sel_key is None or chosen_scale is None or not led_pos_str:
+        print("Missing session data. Cannot start LEDs.")
+        return 0
 
-  # Iterate through piano keys (adjust range to match available LEDs)
-  for i in range(0, nbr_total_leds):
-    output_lines.append(f"{i},'off'")
-  final_file_content = "\n".join(output_lines)
+    # 2. Build the Piano Mask (repeating for octaves)
+    key_str = CHROMATIC[sel_key]
+    octave_mask = get_piano_scale_list(key_str, chosen_scale)
+    
+    piano_keys = []
+    num_octaves = anvil.server.session.get("nbr_of_piano_octaves", 1)
+    for _ in range(num_octaves):
+        piano_keys.extend(octave_mask)
 
-  # 5. Save/Print
-  save_to_pi_or_console(final_file_content)
+    print("piano_keys:")
+    print(piano_keys)
+    
+    # 3. Parse the LED positions CSV string
+    f = io.StringIO(led_pos_str)
+    reader = csv.reader(f, skipinitialspace=True)
+    try:
+        string_list = next(reader)
+    except StopIteration:
+        return 0
 
-  return 1
+    # 4. Generate the File Content
+    output_lines = []
+    nbr_total_leds = anvil.server.session.get("number_of_leds", len(string_list))
+    output_lines.append(str(nbr_total_leds))
+
+    chosen_color = anvil.server.session.get("chosen_color", "white")
+    
+    # We map the piano keys to the LED list
+    # Your original logic used a reverse led_cnt, so we match that here
+    led_cnt = len(string_list) - 2
+    
+    # Iterate through piano keys (adjust range to match available LEDs)
+    for i in range(len(piano_keys) - 1, -1, -1):
+        if led_cnt < 0: break # Safety check
+        
+        state = "off"
+        output_lines.append(f"{string_list[led_cnt]},{state}")
+        led_cnt -= 1
+
+    final_file_content = "\n".join(output_lines)
+
+    # 5. Save/Print
+    save_to_pi_or_console(final_file_content)
+    
+    return 1
