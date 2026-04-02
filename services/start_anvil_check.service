@@ -1,0 +1,11 @@
+[Unit]
+Description=Start Check Anvil Process
+After=network.target
+
+[Service]
+Type=OneShot
+ExecStart=/bin/bash /usr/local/bin/start_anvil_check.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

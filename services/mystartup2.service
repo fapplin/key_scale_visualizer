@@ -1,0 +1,11 @@
+[Unit]
+Description=My anvil startup script
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/home/frank/.config/systemd/user/start_anvil.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=default.target

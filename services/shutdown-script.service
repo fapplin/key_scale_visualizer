@@ -1,0 +1,15 @@
+[Unit]
+Description=GPIO Shutdown Button Monitor
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/home/frank/anvildir/M3_App_2/services
+ExecStart=/usr/bin/python3 /home/frank/anvildir/M3_App_2/services/shutdown.py
+Restart=always
+# This ensures logs show up in journalctl immediately
+Environment=PYTHONPATH=/usr/local/lib/python3.12/dist-packages
+
+[Install]
+WantedBy=multi-user.target
