@@ -1,3 +1,13 @@
+I will leave it to whoever might use this project to go through and change the path names in the following files. It is currently set up to use:
+
+/home/frank/anvildir - where anvil projects are located (this is the only anvil project for the device)
+/home/frank/anvildir/M3_App_2 - this is the anvil project itself
+/home/frank/anvildir/M3_App_2/services - this is the code I wrote to be used with bash files and .service files.
+
+check_anvil_website.py - checks to see if the anvil website is up. Turns on yellow LED while site is starting. Turns on green LED when the website is ready.
+check_led_file.py - this checks the file "leds.txt" to see if the web page has sent data to it via choosing a key, scale, and clicking LEDs On.
+shutdown.py - this works with the button on the board. If the button is pressed for 2 seconds - the Raspberry Pi does a graceful shutdown.
+
 These service files go in /etc/systemd/system directory.
 
 start_anvil_check.service   (Uses the /usr/local/bin/start_anvil_check.sh) 
