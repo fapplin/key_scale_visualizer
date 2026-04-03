@@ -1,6 +1,6 @@
 These service files go in /etc/systemd/system directory.
 
-start_anvil_checks.service   (Uses the /usr/local/bin/start_anvil_check.sh) 
+start_anvil_check.service   (Uses the /usr/local/bin/start_anvil_check.sh) 
 start_anvil_check.sh (This runs a python script to check when the anvil-app-server
                       is up and running. Yellow LED while loading. Green LED when
                       the server is ready for use.)
