@@ -20,8 +20,8 @@ Clicking the LED Parameters button
 Clicking the Edit Modes button
 
 ![20260405_072130](https://github.com/user-attachments/assets/7c1b9b31-ee42-4d2c-9f31-74dc17b02b64)
-Clicking the Edit button on the Edit Modes screen
+Clicking the Edit icon button for a particular scale on the Edit Modes screen
 
 ![20260405_071221](https://github.com/user-attachments/assets/9a111025-4dbd-4fe3-affa-be90fab952ba)
-Clicking the Add button on the Edit Modes screen
+Clicking the Add Scale Definition button on the Edit Modes screen
 
